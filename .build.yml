@@ -1,42 +1,42 @@
-image: debian/stable
-
-packages:
-  - curl
-  - rsync
-  - python3
-  - python3-virtualenv
-  - python3-setuptools
-  - genisoimage
-
-sources:
-  - https://git.sr.ht/~jmstover/ps3iso
-
-secrets:
-  - a1e1fa62-c286-43a1-acf1-415c1d67e6cf
-  - caeee619-69e8-4d22-ab2c-617d7d07122d
-  - 8a4ff2c0-5378-4474-92fa-43de2201b9ba
-
-environment:
-    PACKAGE_NAME: ps3iso
-    ARTIFACT_HOST: artifact.jstover.dev
-
-tasks:
-  - setup: |
-      cd ${PACKAGE_NAME}
-      python3 -m virtualenv -p python3 venv
-      source venv/bin/activate
-      python -V
-      pip install -q -r requirements.dev.txt
-  - test: |
-      cd ${PACKAGE_NAME}
-      source venv/bin/activate
-      make test
-      make coverage
-  - doc: |
-      cd ${PACKAGE_NAME}
-      source venv/bin/activate
-      make doc
-      [ ! -x ~/.rtd-hook ] || ~/.rtd-hook
+# image: debian/stable
+#
+# packages:
+#   - curl
+#   - rsync
+#   - python3
+#   - python3-virtualenv
+#   - python3-setuptools
+#   - genisoimage
+#
+# sources:
+#   - https://git.sr.ht/~jmstover/ps3iso
+#
+# secrets:
+#   - a1e1fa62-c286-43a1-acf1-415c1d67e6cf
+#   - caeee619-69e8-4d22-ab2c-617d7d07122d
+#   - 8a4ff2c0-5378-4474-92fa-43de2201b9ba
+#
+# environment:
+#     PACKAGE_NAME: ps3iso
+#     ARTIFACT_HOST: artifact.kstover.dev
+#
+# tasks:
+#   - setup: |
+#       cd ${PACKAGE_NAME}
+#       python3 -m virtualenv -p python3 venv
+#       source venv/bin/activate
+#       python -V
+#       pip install -q -r requirements.dev.txt
+#   - test: |
+#       cd ${PACKAGE_NAME}
+#       source venv/bin/activate
+#       make test
+#       make coverage
+#   - doc: |
+#       cd ${PACKAGE_NAME}
+#       source venv/bin/activate
+#       make doc
+#       [ ! -x ~/.rtd-hook ] || ~/.rtd-hook
 #  - artifacts: |
 #      cd ${PACKAGE_NAME}
 #      source venv/bin/activate

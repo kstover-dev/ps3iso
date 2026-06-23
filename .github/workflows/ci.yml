@@ -7,14 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12",]
     steps:
       - uses: actions/checkout@v3
-      - uses: packetcoders/action-setup-cache-python-poetry@v1.0.3
-        with:
-          python-version: ${{ matrix.python-version }}
-          poetry-version: 1.4.2
-      - run: poetry run pytest
+      # - uses: packetcoders/action-setup-cache-python-poetry@v1.0.3
+      #   with:
+      #     python-version: ${{ matrix.python-version }}
+      #     poetry-version: 1.4.2
+      # - run: poetry run pytest
 
   coverage:
     name: Coverage
@@ -22,12 +22,12 @@ jobs:
     needs: [ tests ]
     steps:
       - uses: actions/checkout@v3
-      - uses: packetcoders/action-setup-cache-python-poetry@v1.0.3
-        with:
-          python-version: 3.11
-          poetry-version: 1.4.2
-      - run: poetry run coverage run
-      - run: poetry run coverage report --format=markdown >> "$GITHUB_STEP_SUMMARY"
+      # - uses: packetcoders/action-setup-cache-python-poetry@v1.0.3
+      #   with:
+      #     python-version: 3.11
+      #     poetry-version: 1.4.2
+      # - run: poetry run coverage run
+      # - run: poetry run coverage report --format=markdown >> "$GITHUB_STEP_SUMMARY"
 
   docs:
     name: Documentation

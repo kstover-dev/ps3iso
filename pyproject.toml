@@ -1,44 +1,70 @@
-[tool.poetry]
+[project]
 name = "ps3iso"
-version = "0.4.1"
-license = "MIT"
+version = "0.4.2"
+licence = "MIT"
 description = "CLI tool and Python library for managing Playstation 3 and PSP image files"
 authors = [
-    "Josh Stover <dev@jstover.net>"
+    {name = "Kira Stover", email = "dev@kstover.net"},
 ]
 readme = "README.md"
-homepage = "https://github.com/jstover-dev/ps3iso"
-repository = "https://github.com/jstover-dev/ps3iso"
-documentation = "https://ps3iso.readthedocs.io/en/stable"
+requires-python = ">=3.7"
+dependencies = []
+license-files = ["LICEN[CS]E"]
+keywords = ["SFO", "PS3"]
 classifiers = [
     "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+    "Programming Language :: Python :: 3.16",
 ]
 
-[tool.poetry.urls]
-"Issue Tracker" = "https://github.com/jstover-dev/ps3iso/issues"
+[project.urls]
+Homepage = "https://codeberg.org/kstover/ps3iso"
+Documentation = "https://ps3iso.readthedocs.org"
+Repository = "https://codeberg.org/kstover/ps3iso"
+Issues = "https://codeberg.org/kstover/ps3iso/issues"
 
-[tool.poetry.dependencies]
-python = "^3.7"
-
-[tool.poetry.group.dev.dependencies]
-autoflake = "^2.1.1"
-mypy = "^1.4.1"
-
-[tool.poetry.group.tests.dependencies]
-pytest = "^7.4.0"
-coverage = {extras = ["toml"], version = "^7.2.7"}
-vulture = "^2.7"
-
-[tool.poetry.group.docs.dependencies]
-sphinx-autodoc-typehints = "^1.23.0"
-sphinx-git = "^11.0.0"
-sphinx-sitemap = "^2.5.0"
-sphinxcontrib-apidoc = "^0.3.0"
-sphinxcontrib-autoprogram = "^0.1.8"
-sphinxcontrib-fulltoc = "^1.2.0"
-
-[tool.poetry.scripts]
+[project.scripts]
 ps3iso = "ps3iso.__main__:main"
+
+[build-system]
+requires = ["uv_build>=0.11.23,<0.12"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "ps3iso"
+module-root = ""
+
+[dependency-groups]
+dev = [
+    {include-group = "lint"},
+    {include-group = "test"},
+    {include-group = "docs"},
+]
+lint = [
+    "autoflake>=2.1.1",
+    "mypy>=1.4.1",
+]
+test = [
+    "coverage[toml]>=7.2.7",
+    "pytest>=7.4.4",
+    "vulture>=2.9.1",
+]
+docs = [
+    "sphinx-autodoc-typehints>=1.23.0",
+    "sphinx-git>=11.0.0",
+    "sphinx-sitemap>=2.5.0",
+    "sphinxcontrib-apidoc>=0.3.0",
+    "sphinxcontrib-autoprogram>=0.1.8",
+    "sphinxcontrib-fulltoc>=1.2.0",
+]
 
 [tool.pytest.ini_options]
 addopts = '--color=yes --doctest-modules --doctest-glob=README.*'
@@ -56,6 +82,3 @@ remove-all-unused-imports = true
 ignore-init-module-imports = true
 remove-unused-variables = true
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"

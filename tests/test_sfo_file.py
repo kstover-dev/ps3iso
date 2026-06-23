@@ -212,7 +212,7 @@ class TestSfo(unittest.TestCase):
 
     def test_repr(self):
         from ps3iso.sfo import SfoFile
-        from ps3iso.sfo._file import SfoIndexTableEntry, SfoHeader, SfoIndexTable, SfoParameterFormat
+        from ps3iso.sfo._file import SfoIndexTableEntry, SfoHeader, SfoIndexTable, SfoParameterFormat  # noqa
         sfo = SfoFile.parse_file(self.SFO_FILE)
         self.assertEqual(sfo.index_table, eval(repr(sfo.index_table)))
         self.assertEqual(sfo.header, eval(repr(sfo.header)))

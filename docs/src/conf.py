@@ -12,8 +12,8 @@ sys.path.append(os.path.abspath('exts'))
 # -- Project information -----------------------------------------------------
 
 project = 'PS3ISO'
-copyright = f'{date.today().year}, Joshua Stover'
-author = 'Joshua Stover'
+copyright = f'{date.today().year}, Kira Stover'
+author = 'Kira Stover'
 
 
 # -- General configuration ---------------------------------------------------
@@ -27,7 +27,7 @@ extensions = [
     'sphinxcontrib.autoprogram',
     'sphinxcontrib.fulltoc',
     'sphinx_autodoc_typehints',
-    'sphinx_git',
+    #'sphinx_git',
     'generate_history',
     'exec_directive',
     'truncate_values',

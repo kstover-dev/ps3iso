@@ -4,11 +4,8 @@ Command line tool and Python library for managing existing Playstation 3 and
 Playstation Portable image files
 
 [![PyPI version](https://badge.fury.io/py/ps3iso.svg)](https://pypi.org/project/ps3iso)
-[![builds.sr.ht status](https://builds.sr.ht/~jmstover/ps3iso.svg)](https://builds.sr.ht/~jmstover/ps3iso?)
 [![Documentation Status](https://readthedocs.org/projects/ps3iso/badge/?version=latest)](https://ps3iso.readthedocs.io/en/latest/?badge=latest)
-[![Coverage](https://artifact.jstover.dev/ps3iso/badges/coverage.svg)](https://artifact.jstover.dev/ps3iso/htmlcov/)
-[![PyPI - License](https://img.shields.io/pypi/l/ps3iso)](https://git.sr.ht/~jmstover/ps3iso/blob/master/LICENSE)
-[![PyPI - Downloads](https://img.shields.io/pypi/dm/ps3iso)]()
+[![PyPI - License](https://img.shields.io/pypi/l/ps3iso)](https://codeberg.org/kstover/ps3iso/src/branch/master/LICENSE)
 
 
 ## Installing
